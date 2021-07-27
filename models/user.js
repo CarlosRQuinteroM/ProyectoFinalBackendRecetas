@@ -55,6 +55,10 @@ const userSchema = new mongoose.Schema({
       msg: "Invalid mobile phone number.",
     },
   },
+  singupDate:{
+    type: Date,
+    default:Date.now()
+  },
   country: {
     type: String,
   },
