@@ -29,7 +29,32 @@ class Client {
     const token = jwt.sign(payload, secret);
     return { token, user };
   }
-}
+
+  async findAllUsers() {
+    return User.find();
+  };
+
+  async modifyUser(body) {
+    return User.findByIdAndUpdate(
+      //Data Changes
+      {
+        name: body.name,
+        lastName: body.lastName,
+        email: body.email,
+        imgUser: body.imgUser,
+        phoneNumber: body.phoneNumber,
+        country: body.country,
+      },
+      //Were
+      { _id: body.id }
+    );
+  };
+  async deleteUser(id) {
+    return User.findByIdAndRemove({ _id: id });
+  };
+
+
+};
 
 let userController = new Client();
 module.exports = userController;
