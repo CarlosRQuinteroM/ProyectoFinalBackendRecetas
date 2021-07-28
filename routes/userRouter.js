@@ -58,8 +58,8 @@ router.get("/email", admin, async (req, res) => {
 //, Auth costumer modify User by id-Auth
 router.put("/", auth, async (req, res) => {
   try {
-    const body = req.body;
-    res.json(await userController.modifyUser(body));
+    const data = req.body;
+    res.json(await userController.modifyUser(data));
   } catch (error) {
     return res.status(500).json({
       message: error.message,
@@ -68,10 +68,10 @@ router.put("/", auth, async (req, res) => {
 });
 //, authenticate/admin
 
-router.delete("/:id", admin, async (req, res) => {
+router.delete("/", admin, async (req, res) => {
   try {
-    const id = req.params.id;
-    res.json(await Controller.deleteUser(id));
+    const data = req.body;
+    res.json(await userController.deleteUser(data));
   } catch (err) {
     return res.status(500).json({
       message: err.message,

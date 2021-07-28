@@ -32,29 +32,25 @@ class Client {
 
   async findAllUsers() {
     return User.find();
-  };
+  }
 
-  async modifyUser(body) {
+  async modifyUser(data) {
     return User.findByIdAndUpdate(
+      //Were
+      { _id: data.id },
       //Data Changes
       {
-        name: body.name,
-        lastName: body.lastName,
-        email: body.email,
-        imgUser: body.imgUser,
-        phoneNumber: body.phoneNumber,
-        country: body.country,
+        name: data.name,
+        lastName: data.lastName,
+        imgUser: data.imgUser,
+        phoneNumber: data.phoneNumber,
       },
-      //Were
-      { _id: body.id }
     );
-  };
-  async deleteUser(id) {
-    return User.findByIdAndRemove({ _id: id });
-  };
-
-
-};
+  }
+  async deleteUser(data) {
+    return User.findByIdAndRemove({ _id: data.id });
+  }
+}
 
 let userController = new Client();
 module.exports = userController;

@@ -1,11 +1,11 @@
 const router = require("express").Router();
 const userRouter = require("./routes/userRouter");
-const restRouter = require("./routes/recetasSaveRouter");
-// const bookingRouter = require("./routes/bookingRouter");
+const recetasRouter = require("./routes/recetasSaveRouter");
+// const despensaRouter = require("./routes/despensaRouter");
 // 
 router.use("/user", userRouter);
-router.use("/recetasaves", restRouter);
-// router.use("/booking", bookingRouter);
+router.use("/recetasaves", recetasRouter);
+// router.use("/despensa", despensaRouter);
 
 module.exports = router;
 
